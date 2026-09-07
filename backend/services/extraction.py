@@ -295,7 +295,7 @@ class ExtractionService:
             image_url = f"data:{mime_type};base64,{base64_img}"
 
             # Supported active vision models on Groq
-            vision_models = ["qwen/qwen3.8-27b", "qwen/qwen3.6-27b"]
+            vision_models = ["llama-3.2-11b-vision-preview", "llama-3.2-90b-vision-preview", "qwen/qwen3.8-27b", "qwen/qwen3.6-27b"]
 
             last_error = None
             for model_name in vision_models:
@@ -311,6 +311,7 @@ class ExtractionService:
                                 ]
                             }
                         ],
+                        max_tokens=800,
                         temperature=0.1
                     )
 

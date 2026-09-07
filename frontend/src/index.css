@@ -1,6 +1,17 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
+  html {
+    color-scheme: dark;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html.light {
+    color-scheme: light;
+  }
+
   body {
     background-color: rgb(2 6 23);
     color: rgb(241 245 249);
@@ -8,8 +19,15 @@
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html.light body {
+    background-color: rgb(248 250 252);
+    color: rgb(15 23 42);
   }
 }
+
 
 /* Custom modern scrollbars */
 ::-webkit-scrollbar {

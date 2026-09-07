@@ -16,7 +16,7 @@ logging.basicConfig(
 logger = logging.getLogger("digivalet_api")
 
 app = FastAPI(
-    title="DigiValet - Bill Splitting Vision API",
+    title="Smart Bill Splitter - Vision & Calculation API",
     description="Backend service for extracting validated structured bill & receipt items using Vision LLMs.",
     version="1.0.0"
 )
@@ -51,7 +51,7 @@ SUPPORTED_MIME_TYPES: Set[str] = {
 @app.get("/", tags=["General"])
 async def root():
     return {
-        "name": "DigiValet - Bill Splitting API",
+        "name": "Smart Bill Splitter API",
         "version": "1.0.0",
         "status": "online",
         "docs": "/docs",

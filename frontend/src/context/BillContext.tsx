@@ -17,6 +17,14 @@ interface BillContextType {
   configuredProvider: string;
   hasUnsavedChanges: boolean;
 
+  // Global UI Toggles
+  theme: 'dark' | 'light';
+  toggleTheme: () => void;
+  currency: string;
+  setCurrency: (code: string) => void;
+  viewMode: 'home' | 'app';
+  setViewMode: (mode: 'home' | 'app') => void;
+
   // Phase 3 State
   participants: Participant[];
   assignments: ItemAssignments;
@@ -69,9 +77,41 @@ export const BillProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [configuredProvider, setConfiguredProvider] = useState<string>('groq');
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState<boolean>(false);
 
+  // Global UI Toggles
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [currency, setCurrencyState] = useState<string>('INR');
+  const [viewMode, setViewMode] = useState<'home' | 'app'>('home');
+
   // Phase 3 state: participants and item assignments
   const [participants, setParticipants] = useState<Participant[]>([]);
   const [assignments, setAssignments] = useState<ItemAssignments>({});
+
+  // Sync theme with HTML class (Tailwind v4 class-based dark mode)
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light');
+    }
+  }, [theme]);
+
+  // Apply dark class on initial render
+  useEffect(() => {
+    document.documentElement.classList.add('dark');
+  }, []);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
+
+  const setCurrency = (code: string) => {
+    setCurrencyState(code);
+    if (billData) {
+      setBillData((prev) => (prev ? { ...prev, currency: code } : null));
+    }
+  };
 
   // Check backend health on mount
   useEffect(() => {
@@ -152,6 +192,7 @@ export const BillProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setReceiptImageUrl(objectUrl);
     setStatus('idle');
     setErrorMessage(null);
+    setViewMode('app');
   };
 
   const clearFile = () => {
@@ -169,6 +210,7 @@ export const BillProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const sample = SAMPLE_RECEIPTS.find((s) => s.id === sampleId);
     if (!sample) return;
 
+    setViewMode('app');
     setUploadedFile(null);
     setReceiptImageUrl(sample.imageUrl);
     setReceiptImageName(sample.filename);
@@ -498,6 +540,12 @@ export const BillProvider: React.FC<{ children: React.ReactNode }> = ({ children
         isBackendOnline,
         configuredProvider,
         hasUnsavedChanges,
+        theme,
+        toggleTheme,
+        currency,
+        setCurrency,
+        viewMode,
+        setViewMode,
         participants,
         assignments,
         unassignedCount,
