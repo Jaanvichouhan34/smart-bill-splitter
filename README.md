@@ -78,34 +78,34 @@ python -m pytest backend/tests/ -v
 ```
 smart-bill-splitter/
 ├── backend/
-│ ├── main.py # FastAPI entry point & CORS configuration
-│ ├── models.py # Pydantic schemas (LineItem, BillExtraction, PersonBreakdown)
+│ ├── main.py                     # FastAPI entry point & CORS configuration
+│ ├── models.py                   # Pydantic schemas (LineItem, BillExtraction, PersonBreakdown)
 │ ├── services/
-│ │ ├── extraction.py # Groq Vision OCR Service
-│ │ └── calculation.py # Proportional engine & penny rounding algorithm
+│ │ ├── extraction.py             # Groq Vision OCR Service
+│ │ └── calculation.py            # Proportional engine & penny rounding algorithm
 │ ├── tests/
-│ │ ├── test_backend.py # Route & Pydantic validation tests
-│ │ ├── test_calculation.py # Core mathematical unit tests
-│ │ ├── test_live_extraction.py # Live LLM extraction benchmark tests
-│ │ └── generate_12_bills.py # Synthetic receipt generator
+│ │ ├── test_backend.py           # Route & Pydantic validation tests
+│ │ ├── test_calculation.py       # Core mathematical unit tests
+│ │ ├── test_live_extraction.py   # Live LLM extraction benchmark tests
+│ │ └── generate_12_bills.py      # Synthetic receipt generator
 │ └── requirements.txt
 ├── frontend/
 │ ├── src/
 │ │ ├── components/
-│ │ │ ├── Header.tsx # Interactive step progress header
-│ │ │ ├── UploadScreen.tsx # File drag-and-drop & API trigger
-│ │ │ ├── ReviewScreen.tsx # Side-by-side image & editable table review
-│ │ │ ├── AssignmentScreen.tsx # Multi-person item assignment
-│ │ │ ├── ResultsScreen.tsx# Per-person breakdown & WhatsApp export
+│ │ │ ├── Header.tsx               # Interactive step progress header
+│ │ │ ├── UploadScreen.tsx         # File drag-and-drop & API trigger
+│ │ │ ├── ReviewScreen.tsx         # Side-by-side image & editable table review
+│ │ │ ├── AssignmentScreen.tsx     # Multi-person item assignment
+│ │ │ ├── ResultsScreen.tsx        # Per-person breakdown & WhatsApp export
 │ │ │ ├── ConfidenceBadge.tsx
 │ │ │ └── MathSanityBadge.tsx
 │ │ ├── context/
-│ │ │ └── BillContext.tsx # Global state manager with persistence
+│ │ │ └── BillContext.tsx         # Global state manager with persistence
 │ │ └── utils/
-│ │ └── splitCalculator.ts # Pure TypeScript frontend calculation engine
+│ │ └── splitCalculator.ts        # Pure TypeScript frontend calculation engine
 ├── test-bills/
-│ ├── ground-truth.md # 12-Bill benchmark matrix & specifications
-│ └── bill_01..12.png # 12 test receipt images
+│ ├── ground-truth.md             # 12-Bill benchmark matrix & specifications
+│ └── bill_01..12.png             # 12 test receipt images
 └── README.md
 ```
 ---
