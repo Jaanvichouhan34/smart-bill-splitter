@@ -11,6 +11,18 @@
 
 ---
 
+## 📸 Screenshots
+
+<p align="center">
+  <img src="frontend/public/screenshots/extract.png" width="24%" alt="Extraction Screen" />
+  <img src="frontend/public/screenshots/add_people.png" width="24%" alt="Add People Screen" />
+  <img src="frontend/public/screenshots/review.png" width="24%" alt="Review Screen" />
+  <img src="frontend/public/screenshots/final.png" width="24%" alt="Final Results Screen" />
+</p>
+
+
+---
+
 ## 🚀 Quickstart Guide (Run Locally)
 
 ### Prerequisites
