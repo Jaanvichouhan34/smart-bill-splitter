@@ -75,6 +75,7 @@ python -m pytest backend/tests/ -v
 ---
 
 ## 🏗️ Architecture & Phase-by-Phase Build Breakdown
+```
 smart-bill-splitter/
 ├── backend/
 │ ├── main.py # FastAPI entry point & CORS configuration
@@ -106,8 +107,8 @@ smart-bill-splitter/
 │ ├── ground-truth.md # 12-Bill benchmark matrix & specifications
 │ └── bill_01..12.png # 12 test receipt images
 └── README.md
-
-
+```
+---
 ### Phase Summary:
 - **Phase 1 (Backend Core & Pydantic Schemas)**: FastAPI backend, Pydantic data structures with unique item IDs, tip & currency fields, Groq Vision LLM extraction pipeline.
 - **Phase 2 (Upload & Interactive Review)**: React upload workflow, side-by-side receipt preview & editable line items table, confidence color badges, add/delete items, dynamic subtotal math sanity checker.
