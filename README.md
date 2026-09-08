@@ -18,7 +18,7 @@
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="frontend/public/screenshots/extract.png" width="48%" alt="Extraction Screen" />
+  <img src="frontend/public/screenshots/add people.png" width="48%" alt="Extraction Screen" />
 </p>
 <p align="center">
   <img src="frontend/public/screenshots/review.png" width="48%" alt="Review Screen" />
