@@ -91,30 +91,30 @@ export const PeopleManager: React.FC = () => {
   );
 
   return (
-    <div className="bg-slate-900/70 border border-slate-800 rounded-3xl p-5 sm:p-6 backdrop-blur-md shadow-xl space-y-5">
+    <div className="bg-white/80 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 backdrop-blur-md shadow-xl space-y-5">
       {/* Section Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800/80">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200 dark:border-slate-800/80">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center shadow-inner">
+          <div className="w-10 h-10 rounded-2xl bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shadow-inner">
             <Users className="w-5 h-5" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h3 className="text-base sm:text-lg font-bold text-slate-100">
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100">
                 1. Add Group Members
               </h3>
-              <span className="px-2 py-0.5 rounded-full bg-slate-800 text-indigo-300 text-xs font-mono font-semibold border border-slate-700">
+              <span className="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-indigo-600 dark:text-indigo-300 text-xs font-mono font-semibold border border-slate-300 dark:border-slate-700">
                 {participants.length} {participants.length === 1 ? 'person' : 'people'}
               </span>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-slate-500 dark:text-slate-400">
               Add everyone who is splitting this bill. Each person gets a distinct color badge.
             </p>
           </div>
         </div>
 
         {participants.length < 2 && (
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-amber-500/10 text-amber-300 border border-amber-500/20 text-xs">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/20 text-xs font-medium">
             <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
             <span>Add at least 2 people to split</span>
           </div>
@@ -136,10 +136,10 @@ export const PeopleManager: React.FC = () => {
               onKeyDown={handleKeyDown}
               placeholder="Enter name (e.g. Alice, Bob, Charlie)..."
               maxLength={30}
-              className={`w-full bg-slate-950/80 border rounded-2xl px-4 py-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 transition-all ${
+              className={`w-full bg-white dark:bg-slate-950/80 border rounded-2xl px-4 py-3 text-sm text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 transition-all ${
                 inputError
                   ? 'border-rose-500/80 focus:ring-rose-500/50'
-                  : 'border-slate-800 focus:border-indigo-500 focus:ring-indigo-500/30'
+                  : 'border-slate-200 dark:border-slate-800 focus:border-indigo-500 focus:ring-indigo-500/30'
               }`}
             />
           </div>
@@ -148,7 +148,7 @@ export const PeopleManager: React.FC = () => {
             type="button"
             onClick={() => handleAdd()}
             disabled={!inputName.trim()}
-            className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-500 disabled:bg-slate-800 disabled:text-slate-500 text-white text-sm font-semibold shadow-lg shadow-indigo-600/25 disabled:shadow-none transition-all cursor-pointer disabled:cursor-not-allowed flex-shrink-0"
+            className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-500 disabled:bg-slate-100 dark:disabled:bg-slate-800 disabled:text-slate-400 dark:disabled:text-slate-500 text-white text-sm font-semibold shadow-lg shadow-indigo-600/25 disabled:shadow-none transition-all cursor-pointer disabled:cursor-not-allowed flex-shrink-0"
           >
             <UserPlus className="w-4 h-4" />
             <span>Add Person</span>
@@ -157,7 +157,7 @@ export const PeopleManager: React.FC = () => {
 
         {/* Inline input error */}
         {inputError && (
-          <p className="text-xs text-rose-400 flex items-center gap-1 pl-1">
+          <p className="text-xs text-rose-600 dark:text-rose-400 flex items-center gap-1 pl-1">
             <AlertCircle className="w-3.5 h-3.5" />
             <span>{inputError}</span>
           </p>
@@ -167,8 +167,8 @@ export const PeopleManager: React.FC = () => {
       {/* Quick Add Suggestions */}
       {remainingSuggestions.length > 0 && participants.length < 6 && (
         <div className="flex items-center flex-wrap gap-2 text-xs">
-          <span className="text-slate-400 flex items-center gap-1">
-            <Sparkles className="w-3 h-3 text-indigo-400" />
+          <span className="text-slate-500 dark:text-slate-400 flex items-center gap-1">
+            <Sparkles className="w-3 h-3 text-indigo-500 dark:text-indigo-400" />
             <span>Quick add:</span>
           </span>
           {remainingSuggestions.slice(0, 4).map((name) => (
@@ -176,7 +176,7 @@ export const PeopleManager: React.FC = () => {
               key={name}
               type="button"
               onClick={() => handleAdd(name)}
-              className="px-2.5 py-1 rounded-lg bg-slate-950/70 hover:bg-indigo-950/40 text-slate-300 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 transition-all font-medium"
+              className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-950/70 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-300 border border-slate-200 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-500/30 transition-all font-medium cursor-pointer"
             >
               + {name}
             </button>
@@ -187,9 +187,9 @@ export const PeopleManager: React.FC = () => {
       {/* Participants Badge Cloud */}
       <div className="space-y-2">
         {participants.length === 0 ? (
-          <div className="p-6 rounded-2xl border border-dashed border-slate-800 bg-slate-950/40 text-center space-y-2">
-            <Users className="w-8 h-8 text-slate-600 mx-auto" />
-            <p className="text-xs text-slate-400">
+          <div className="p-6 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/40 text-center space-y-2">
+            <Users className="w-8 h-8 text-slate-400 dark:text-slate-600 mx-auto" />
+            <p className="text-xs text-slate-500 dark:text-slate-400">
               No participants added yet. Type names above or use quick suggestions.
             </p>
           </div>
@@ -214,28 +214,28 @@ export const PeopleManager: React.FC = () => {
 
       {/* Delete Confirmation Modal */}
       {personToDelete && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-150">
-          <div className="bg-slate-900 border border-rose-500/30 rounded-3xl p-6 max-w-md w-full shadow-2xl space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-rose-500/20 text-rose-400 flex items-center justify-center mx-auto">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-150">
+          <div className="bg-white dark:bg-slate-900 border border-rose-500/30 rounded-3xl p-6 max-w-md w-full shadow-2xl space-y-4">
+            <div className="w-12 h-12 rounded-2xl bg-rose-500/20 text-rose-500 dark:text-rose-400 flex items-center justify-center mx-auto">
               <AlertTriangle className="w-6 h-6" />
             </div>
 
             <div className="text-center space-y-2">
-              <h4 className="text-lg font-bold text-white">
+              <h4 className="text-lg font-bold text-slate-900 dark:text-white">
                 Remove {personToDelete.name}?
               </h4>
-              <p className="text-xs text-slate-300">
-                <span className="font-semibold text-rose-300">{personToDelete.name}</span> is currently assigned to{' '}
-                <span className="font-bold text-white">{getAssignedCount(personToDelete.id)}</span> items:
+              <p className="text-xs text-slate-600 dark:text-slate-300">
+                <span className="font-semibold text-rose-600 dark:text-rose-300">{personToDelete.name}</span> is currently assigned to{' '}
+                <span className="font-bold text-slate-900 dark:text-white">{getAssignedCount(personToDelete.id)}</span> items:
               </p>
-              <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-left max-h-32 overflow-y-auto divide-y divide-slate-800/50">
+              <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-left max-h-32 overflow-y-auto divide-y divide-slate-200 dark:divide-slate-800/50">
                 {getAssignedItemNames(personToDelete.id).map((itemName, i) => (
-                  <p key={i} className="text-xs text-slate-300 py-1 truncate">
+                  <p key={i} className="text-xs text-slate-700 dark:text-slate-300 py-1 truncate">
                     • {itemName}
                   </p>
                 ))}
               </div>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-slate-500 dark:text-slate-400">
                 Removing them will automatically unassign them from these dishes.
               </p>
             </div>
@@ -244,14 +244,14 @@ export const PeopleManager: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setPersonToDelete(null)}
-                className="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold border border-slate-700 transition-colors"
+                className="flex-1 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold border border-slate-300 dark:border-slate-700 transition-colors cursor-pointer"
               >
                 Cancel
               </button>
               <button
                 type="button"
                 onClick={handleConfirmDelete}
-                className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold shadow-lg shadow-rose-600/30 transition-all"
+                className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold shadow-lg shadow-rose-600/30 transition-all cursor-pointer"
               >
                 <Trash2 className="w-4 h-4" />
                 <span>Remove & Unassign</span>

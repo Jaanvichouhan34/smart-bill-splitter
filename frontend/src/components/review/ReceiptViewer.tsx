@@ -24,7 +24,7 @@ export const ReceiptViewer: React.FC<ReceiptViewerProps> = ({
 
   if (!receiptImageUrl) {
     return (
-      <div className="h-full min-h-[300px] flex items-center justify-center bg-slate-900/40 border border-slate-800 rounded-2xl p-6 text-center text-slate-500 text-xs">
+      <div className="h-full min-h-[300px] flex items-center justify-center bg-white/60 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 text-center text-slate-500 text-xs">
         No receipt photo attached
       </div>
     );
@@ -36,11 +36,11 @@ export const ReceiptViewer: React.FC<ReceiptViewerProps> = ({
 
   return (
     <>
-      <div className="flex flex-col h-full bg-slate-900/60 border border-slate-800/80 rounded-2xl overflow-hidden shadow-xl">
+      <div className="flex flex-col h-full bg-white/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 rounded-2xl overflow-hidden shadow-xl">
         {/* Header bar */}
-        <div className="flex items-center justify-between px-4 py-3 bg-slate-950/80 border-b border-slate-800 text-xs">
-          <div className="flex items-center gap-2 text-slate-300 font-medium truncate">
-            <span className="w-2 h-2 rounded-full bg-indigo-400" />
+        <div className="flex items-center justify-between px-4 py-3 bg-slate-100/90 dark:bg-slate-950/80 border-b border-slate-200 dark:border-slate-800 text-xs">
+          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium truncate">
+            <span className="w-2 h-2 rounded-full bg-indigo-500 dark:bg-indigo-400" />
             <span className="truncate">{receiptImageName || 'Receipt Photo'}</span>
           </div>
 
@@ -48,32 +48,32 @@ export const ReceiptViewer: React.FC<ReceiptViewerProps> = ({
             <button
               onClick={handleZoomOut}
               disabled={zoomLevel <= 0.75}
-              className="p-1.5 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-slate-800 disabled:opacity-40 transition-colors"
+              className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-800 disabled:opacity-40 transition-colors"
               title="Zoom out"
             >
               <ZoomOut className="w-4 h-4" />
             </button>
-            <span className="text-[11px] font-mono text-slate-400 w-10 text-center">
+            <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 w-10 text-center">
               {Math.round(zoomLevel * 100)}%
             </span>
             <button
               onClick={handleZoomIn}
               disabled={zoomLevel >= 3}
-              className="p-1.5 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-slate-800 disabled:opacity-40 transition-colors"
+              className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-800 disabled:opacity-40 transition-colors"
               title="Zoom in"
             >
               <ZoomIn className="w-4 h-4" />
             </button>
             <button
               onClick={handleResetZoom}
-              className="p-1.5 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-colors"
+              className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors"
               title="Reset zoom"
             >
               <RotateCcw className="w-3.5 h-3.5" />
             </button>
             <button
               onClick={() => setIsFullscreen(true)}
-              className="p-1.5 rounded-lg text-slate-400 hover:text-indigo-300 hover:bg-slate-800 transition-colors ml-1"
+              className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors ml-1"
               title="Open full view modal"
             >
               <Maximize2 className="w-4 h-4" />
@@ -82,7 +82,7 @@ export const ReceiptViewer: React.FC<ReceiptViewerProps> = ({
             {onToggleCollapse && (
               <button
                 onClick={onToggleCollapse}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-colors ml-1"
+                className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors ml-1"
                 title="Collapse receipt preview"
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -92,7 +92,7 @@ export const ReceiptViewer: React.FC<ReceiptViewerProps> = ({
         </div>
 
         {/* Scrollable image viewport */}
-        <div className="relative flex-1 min-h-[420px] max-h-[680px] overflow-auto p-4 bg-slate-950/90 flex items-center justify-center select-none">
+        <div className="relative flex-1 min-h-[420px] max-h-[680px] overflow-auto p-4 bg-slate-100/90 dark:bg-slate-950/90 flex items-center justify-center select-none">
           <div
             className="transition-transform duration-200 origin-top flex items-center justify-center"
             style={{ transform: `scale(${zoomLevel})` }}
@@ -100,15 +100,15 @@ export const ReceiptViewer: React.FC<ReceiptViewerProps> = ({
             <img
               src={receiptImageUrl}
               alt="Receipt preview"
-              className="max-w-full rounded-lg shadow-2xl border border-slate-800 object-contain max-h-[620px]"
+              className="max-w-full rounded-lg shadow-2xl border border-slate-300 dark:border-slate-800 object-contain max-h-[620px]"
             />
           </div>
         </div>
 
         {/* Helper footer */}
-        <div className="px-4 py-2 bg-slate-950/60 border-t border-slate-800/80 text-[11px] text-slate-400 flex items-center justify-between">
+        <div className="px-4 py-2 bg-slate-100/80 dark:bg-slate-950/60 border-t border-slate-200/80 dark:border-slate-800/80 text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between">
           <span>Tip: Scroll & zoom to cross-check item totals</span>
-          <span className="text-indigo-400 flex items-center gap-1">
+          <span className="text-indigo-600 dark:text-indigo-400 flex items-center gap-1 font-medium">
             <Sparkles className="w-3 h-3" /> Original Check
           </span>
         </div>
@@ -116,7 +116,7 @@ export const ReceiptViewer: React.FC<ReceiptViewerProps> = ({
 
       {/* Fullscreen Modal View */}
       {isFullscreen && (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex flex-col p-4 sm:p-6 animate-in fade-in">
+        <div className="fixed inset-0 z-50 bg-slate-950/90 dark:bg-black/90 backdrop-blur-md flex flex-col p-4 sm:p-6 animate-in fade-in">
           <div className="flex items-center justify-between pb-4 border-b border-slate-800 text-slate-200">
             <div className="flex items-center gap-2 font-medium text-sm">
               <Eye className="w-4 h-4 text-indigo-400" />
@@ -125,25 +125,25 @@ export const ReceiptViewer: React.FC<ReceiptViewerProps> = ({
             <div className="flex items-center gap-2">
               <button
                 onClick={handleZoomOut}
-                className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300"
+                className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
               >
                 <ZoomOut className="w-4 h-4" />
               </button>
               <button
                 onClick={handleZoomIn}
-                className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300"
+                className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
               >
                 <ZoomIn className="w-4 h-4" />
               </button>
               <button
                 onClick={handleResetZoom}
-                className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-mono px-3"
+                className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-mono px-3 transition-colors"
               >
                 Reset
               </button>
               <button
                 onClick={() => setIsFullscreen(false)}
-                className="p-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-4 ml-2"
+                className="p-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-4 ml-2 transition-colors"
               >
                 Close View
               </button>

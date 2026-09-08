@@ -48,7 +48,7 @@ export const AssignmentStatusBar: React.FC<AssignmentStatusBarProps> = ({ onCont
 
   return (
     <div className="sticky bottom-4 z-30 animate-in fade-in slide-in-from-bottom-3">
-      <div className="bg-slate-900/90 border border-slate-700/80 rounded-3xl p-4 sm:p-5 backdrop-blur-xl shadow-2xl space-y-3 ring-1 ring-white/10">
+      <div className="bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-700/80 rounded-3xl p-4 sm:p-5 backdrop-blur-xl shadow-2xl space-y-3 ring-1 ring-slate-900/5 dark:ring-white/10">
         
         {/* Top Banner Row */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
@@ -58,8 +58,8 @@ export const AssignmentStatusBar: React.FC<AssignmentStatusBarProps> = ({ onCont
             <div
               className={`w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-md ${
                 isAllItemsAssigned
-                  ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
-                  : 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
+                  ? 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30'
+                  : 'bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30'
               }`}
             >
               {isAllItemsAssigned ? (
@@ -73,7 +73,9 @@ export const AssignmentStatusBar: React.FC<AssignmentStatusBarProps> = ({ onCont
               <div className="flex items-center gap-2">
                 <h4
                   className={`text-sm sm:text-base font-bold ${
-                    isAllItemsAssigned ? 'text-emerald-300' : 'text-amber-300'
+                    isAllItemsAssigned
+                      ? 'text-emerald-700 dark:text-emerald-300'
+                      : 'text-amber-700 dark:text-amber-300'
                   }`}
                 >
                   {isAllItemsAssigned
@@ -81,12 +83,12 @@ export const AssignmentStatusBar: React.FC<AssignmentStatusBarProps> = ({ onCont
                     : `Unassigned items: ${unassignedCount} remaining`}
                 </h4>
 
-                <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
+                <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700">
                   {assignedItemsCount}/{totalItems} items ({progressPercent}%)
                 </span>
               </div>
 
-              <p className="text-xs text-slate-400 mt-0.5">
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                 {isAllItemsAssigned
                   ? `Every dish is assigned across ${participants.length} participants. Ready to view results!`
                   : disabledReason}
@@ -103,7 +105,7 @@ export const AssignmentStatusBar: React.FC<AssignmentStatusBarProps> = ({ onCont
               className={`w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl text-sm font-bold transition-all ${
                 isAllItemsAssigned
                   ? 'bg-gradient-to-r from-emerald-600 via-teal-600 to-indigo-600 hover:from-emerald-500 hover:to-indigo-500 text-white shadow-lg shadow-emerald-600/30 hover:scale-[1.02] active:scale-[0.98] cursor-pointer'
-                  : 'bg-slate-800 text-slate-500 border border-slate-700/60 cursor-not-allowed'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 border border-slate-200 dark:border-slate-700/60 cursor-not-allowed'
               }`}
               title={
                 isAllItemsAssigned
@@ -119,7 +121,7 @@ export const AssignmentStatusBar: React.FC<AssignmentStatusBarProps> = ({ onCont
         </div>
 
         {/* Progress Bar */}
-        <div className="w-full bg-slate-950 rounded-full h-2 overflow-hidden border border-slate-800/80">
+        <div className="w-full bg-slate-100 dark:bg-slate-950 rounded-full h-2 overflow-hidden border border-slate-200 dark:border-slate-800/80">
           <div
             className={`h-full transition-all duration-300 rounded-full ${
               isAllItemsAssigned
@@ -132,8 +134,8 @@ export const AssignmentStatusBar: React.FC<AssignmentStatusBarProps> = ({ onCont
 
         {/* Helper text tooltip when disabled */}
         {!isAllItemsAssigned && (
-          <div className="flex items-center gap-1.5 text-[11px] text-slate-400 bg-slate-950/60 px-3 py-1.5 rounded-xl border border-slate-800/50">
-            <Info className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
+          <div className="flex items-center gap-1.5 text-[11px] text-slate-600 dark:text-slate-400 bg-slate-100/80 dark:bg-slate-950/60 px-3 py-1.5 rounded-xl border border-slate-200/80 dark:border-slate-800/50">
+            <Info className="w-3.5 h-3.5 text-indigo-500 dark:text-indigo-400 flex-shrink-0" />
             <span>
               <strong>Requirement:</strong> Please assign every item to at least one person to proceed.
             </span>

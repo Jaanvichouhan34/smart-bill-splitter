@@ -49,7 +49,7 @@ export const ParticipantBadge: React.FC<ParticipantBadgeProps> = ({
         className={`group inline-flex items-center rounded-xl font-medium border transition-all duration-150 select-none ${badgePaddingClasses} ${
           isSelected
             ? `${theme.badgeBg} ${theme.badgeText} ${theme.badgeBorder} shadow-sm ${theme.glow} ring-1 ${theme.ring}`
-            : 'bg-slate-900/80 text-slate-400 border-slate-850 hover:border-slate-700 hover:text-slate-200 hover:bg-slate-850'
+            : 'bg-slate-100 dark:bg-slate-900/80 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-800'
         }`}
         title={`Click to ${isSelected ? 'unassign' : 'assign'} ${participant.name}`}
       >
@@ -57,7 +57,7 @@ export const ParticipantBadge: React.FC<ParticipantBadgeProps> = ({
           className={`flex items-center justify-center rounded-lg font-bold transition-all ${avatarSizeClasses} ${
             isSelected
               ? `${theme.avatarBg} ${theme.avatarText}`
-              : 'bg-slate-800 text-slate-400 group-hover:bg-slate-700 group-hover:text-slate-200'
+              : 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 group-hover:bg-slate-300 dark:group-hover:bg-slate-700 group-hover:text-slate-900 dark:group-hover:text-slate-200'
           }`}
         >
           {isSelected ? <Check className="w-3 h-3 stroke-[3]" /> : initials}
@@ -78,7 +78,7 @@ export const ParticipantBadge: React.FC<ParticipantBadgeProps> = ({
         {initials}
       </span>
 
-      <span className="font-semibold text-slate-100 truncate max-w-[140px]">
+      <span className="font-semibold text-slate-900 dark:text-slate-100 truncate max-w-[140px]">
         {participant.name}
       </span>
 
@@ -86,8 +86,8 @@ export const ParticipantBadge: React.FC<ParticipantBadgeProps> = ({
         <span
           className={`px-1.5 py-0.5 rounded-md text-[11px] font-mono font-bold ${
             assignedCount > 0
-              ? 'bg-slate-900/80 text-emerald-400 border border-emerald-500/30'
-              : 'bg-slate-900/60 text-slate-400 border border-slate-700/50'
+              ? 'bg-emerald-50 dark:bg-slate-900/80 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/30'
+              : 'bg-slate-100 dark:bg-slate-900/60 text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-700/50'
           }`}
           title={`${assignedCount} items assigned to ${participant.name}`}
         >
@@ -102,7 +102,7 @@ export const ParticipantBadge: React.FC<ParticipantBadgeProps> = ({
             e.stopPropagation();
             onRemove();
           }}
-          className="ml-1 p-1 rounded-lg text-slate-400 hover:text-rose-400 hover:bg-rose-500/20 transition-colors"
+          className="ml-1 p-1 rounded-lg text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-500/10 dark:hover:bg-rose-500/20 transition-colors cursor-pointer"
           title={`Remove ${participant.name}`}
           aria-label={`Remove ${participant.name}`}
         >

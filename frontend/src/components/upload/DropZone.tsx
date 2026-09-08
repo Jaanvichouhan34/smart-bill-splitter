@@ -81,10 +81,10 @@ export const DropZone: React.FC = () => {
         onClick={() => fileInputRef.current?.click()}
         className={`relative group cursor-pointer rounded-2xl border-2 border-dashed p-8 sm:p-12 text-center transition-all duration-300 ${
           isDragging
-            ? 'border-indigo-400 bg-indigo-950/40 scale-[1.01] shadow-xl shadow-indigo-500/10'
+            ? 'border-indigo-500 dark:border-indigo-400 bg-indigo-50/60 dark:bg-indigo-950/40 scale-[1.01] shadow-xl shadow-indigo-500/10'
             : uploadedFile
-            ? 'border-emerald-500/50 bg-emerald-950/10 hover:border-emerald-400'
-            : 'border-slate-700/80 bg-slate-900/40 hover:border-indigo-500/70 hover:bg-slate-900/80'
+            ? 'border-emerald-500/50 bg-emerald-50/60 dark:bg-emerald-950/10 hover:border-emerald-500 dark:hover:border-emerald-400'
+            : 'border-slate-300 dark:border-slate-700/80 bg-white/60 dark:bg-slate-900/40 hover:border-indigo-500/70 hover:bg-slate-50/80 dark:hover:bg-slate-900/80'
         }`}
       >
         {/* Glow effect on hover */}
@@ -94,36 +94,36 @@ export const DropZone: React.FC = () => {
           <div
             className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110 ${
               uploadedFile
-                ? 'bg-emerald-500/20 text-emerald-400'
+                ? 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-400'
                 : isDragging
                 ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/50'
-                : 'bg-slate-800 text-indigo-400 border border-slate-700 group-hover:bg-indigo-600 group-hover:text-white'
+                : 'bg-slate-100 dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 border border-slate-200 dark:border-slate-700 group-hover:bg-indigo-600 group-hover:text-white'
             }`}
           >
             {uploadedFile ? (
-              <CheckCircle2 className="w-8 h-8 text-emerald-400 animate-in zoom-in-50" />
+              <CheckCircle2 className="w-8 h-8 text-emerald-600 dark:text-emerald-400 animate-in zoom-in-50" />
             ) : (
               <UploadCloud className="w-8 h-8" />
             )}
           </div>
 
           <div className="space-y-1">
-            <h3 className="text-lg font-semibold text-slate-100 group-hover:text-indigo-200">
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-200">
               {isDragging
                 ? 'Drop your receipt image here!'
                 : uploadedFile
                 ? 'Receipt photo selected'
                 : 'Upload your receipt photo'}
             </h3>
-            <p className="text-sm text-slate-400 max-w-sm">
+            <p className="text-sm text-slate-600 dark:text-slate-400 max-w-sm">
               Drag & drop your restaurant check or bill photo here, or{' '}
-              <span className="text-indigo-400 font-medium underline underline-offset-2">
+              <span className="text-indigo-600 dark:text-indigo-400 font-medium underline underline-offset-2">
                 browse files
               </span>
             </p>
           </div>
 
-          <div className="flex items-center gap-3 pt-2 text-xs text-slate-500">
+          <div className="flex items-center gap-3 pt-2 text-xs text-slate-500 dark:text-slate-400">
             <span className="inline-flex items-center gap-1">
               <ImageIcon className="w-3.5 h-3.5" /> JPEG, PNG, WEBP, HEIC
             </span>
@@ -135,7 +135,7 @@ export const DropZone: React.FC = () => {
         </div>
 
         {dragError && (
-          <div className="mt-4 p-2 bg-red-950/60 border border-red-800 text-red-300 text-xs rounded-lg animate-shake">
+          <div className="mt-4 p-2 bg-red-50 dark:bg-red-950/60 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 text-xs rounded-lg animate-shake">
             {dragError}
           </div>
         )}

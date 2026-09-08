@@ -42,12 +42,12 @@ export const ReviewScreen: React.FC = () => {
     <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 space-y-6">
       
       {/* Top Header & Navigation Bar */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-2 border-b border-slate-800">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-2 border-b border-slate-200 dark:border-slate-800">
         <div>
           <div className="flex items-center gap-2">
             <button
               onClick={startNewBill}
-              className="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-slate-100 bg-slate-900 hover:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-800 transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Upload New Photo</span>
@@ -56,7 +56,7 @@ export const ReviewScreen: React.FC = () => {
             {receiptImageUrl && (
               <button
                 onClick={() => setIsReceiptCollapsed(!isReceiptCollapsed)}
-                className="hidden lg:inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-indigo-300 bg-slate-900 hover:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-800 transition-colors"
+                className="hidden lg:inline-flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-300 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 transition-colors"
               >
                 {isReceiptCollapsed ? (
                   <>
@@ -72,10 +72,10 @@ export const ReviewScreen: React.FC = () => {
               </button>
             )}
           </div>
-          <h2 className="text-xl sm:text-2xl font-extrabold text-slate-100 mt-2">
+          <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-slate-100 mt-2">
             Review & Edit Bill Details
           </h2>
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-slate-500 dark:text-slate-400">
             Verify recognized dishes, quantities, and prices against the original check before splitting.
           </p>
         </div>
@@ -85,7 +85,7 @@ export const ReviewScreen: React.FC = () => {
           {hasUnsavedChanges && (
             <button
               onClick={resetToOriginalExtraction}
-              className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-slate-100 text-xs font-medium border border-slate-700 transition-colors"
+              className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 text-xs font-medium border border-slate-300 dark:border-slate-700 transition-colors"
               title="Reset items and prices to the original AI extraction"
             >
               <RotateCcw className="w-3.5 h-3.5" />
@@ -131,14 +131,14 @@ export const ReviewScreen: React.FC = () => {
           </div>
 
           {/* Bottom Confirmation Card */}
-          <div className="p-4 sm:p-6 bg-slate-900/40 border border-slate-800 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="p-4 sm:p-6 bg-white/60 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3 text-left">
               <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0">
                 <CheckCircle className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="text-sm font-semibold text-slate-100">Ready to Split?</h4>
-                <p className="text-xs text-slate-400">
+                <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100">Ready to Split?</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
                   Once your line items match the check, continue to assign items to group members.
                 </p>
               </div>
