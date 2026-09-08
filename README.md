@@ -11,9 +11,7 @@
 
 ---
 
-## 📸 Screenshots
 
----
 
 ## 📸 Screenshots
 
