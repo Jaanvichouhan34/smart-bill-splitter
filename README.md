@@ -19,8 +19,7 @@
 
 <p align="center">
   <img src="frontend/public/screenshots/add people.png" width="48%" alt="Extraction Screen" />
-</p>
-<p align="center">
+
   <img src="frontend/public/screenshots/review.png" width="48%" alt="Review Screen" />
   <img src="frontend/public/screenshots/final.png" width="48%" alt="Final Results Screen" />
 </p>
