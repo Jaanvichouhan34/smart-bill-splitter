@@ -198,8 +198,4 @@ All 12 test bills in `test-bills/` were tested against the full end-to-end extra
 ## 🎥 Demo Video Link
 
 - **Demo Video URL**: *[[link](https://drive.google.com/drive/folders/1yWiTExEB-KRUp58CkaS8yWmHqAFCq9Gn?usp=sharing)"]*
-- **Walkthrough Overview (2–3 mins)**:
-  1. Uploading receipt photo & AI loading state
-  2. Side-by-side review screen, confidence color badges, adding/editing items & live math sanity check
-  3. Adding participants and assigning items with "Select Everyone"
-  4. Viewing final breakdown screen, verifying the mathematical balance badge, and copying the WhatsApp summary
+
